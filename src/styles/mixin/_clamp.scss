@@ -1,9 +1,0 @@
-// 멀티라인 말줄임
-@mixin clamp($h:40px,$cp:2) {
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  height: $h;
-  -webkit-line-clamp: $cp;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
