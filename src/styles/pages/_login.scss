@@ -1,0 +1,30 @@
+.login-wrapper {
+  align-items: center;
+  // background-color: #f1f1f1;
+  background-color: #2A3267;
+  display: flex;
+  height: 100vh;
+}
+
+.login-form {
+  margin: auto;
+  // max-width: 1000px;
+  padding: 15px;
+  // width: 459px;
+}
+.login-form-logo {
+  font-size: 200px;
+  // margin-bottom: -50px;
+  // margin-top: -200px;
+  text-align: center;
+}
+.login-footer {
+  background-color: #f1f1f1;
+  height: 2vh;
+  > span {
+    bottom: 15px;
+    color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    right: 30px;
+  }
+}
