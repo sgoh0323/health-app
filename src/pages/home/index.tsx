@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react';
+import React, { RefObject, useState } from 'react';
 import { EChart, Template } from 'components';
 import {
     Button,
@@ -7,6 +7,7 @@ import {
     DatePicker,
     Divider,
     Form,
+    ImageUploader,
     Input,
     NoticeBar,
     Space,
@@ -17,6 +18,7 @@ import {
 import { AntCloudOutlined, RightOutlined } from '@ant-design/icons';
 import { DatePickerRef } from 'antd-mobile/es/components/date-picker';
 import moment from 'moment';
+import { ImageUploadItem } from 'antd-mobile/es/components/image-uploader';
 // import { DatePicker } from 'antd';
 
 const { Step } = Steps;
@@ -35,6 +37,13 @@ const Login: React.FunctionComponent = () => {
             </div>
         </Swiper.Item>
     ));
+
+    const [fileList, setFileList] = useState<ImageUploadItem[]>([]);
+    const mockUpload = async (file: File) => {
+        return {
+            url: URL.createObjectURL(file)
+        };
+    };
     return (
         <div style={{ padding: '10px' }}>
             <Swiper autoplay loop>
@@ -102,6 +111,7 @@ const Login: React.FunctionComponent = () => {
                     console.log(val);
                 }}
             />
+            <ImageUploader value={fileList} onChange={setFileList} upload={mockUpload} />
         </div>
     );
 };

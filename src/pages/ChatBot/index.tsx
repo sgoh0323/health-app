@@ -105,14 +105,17 @@ const Chat = () => {
                                         justifyContent: 'end',
                                         overflowWrap: 'anywhere'
                                     }}>
-                                    <Card
-                                        style={{
-                                            fontWeight: 600,
-                                            maxWidth: 'calc( 100% - 150px)',
-                                            backgroundColor: '#1677ff'
-                                        }}>
-                                        {i?.text}
-                                    </Card>
+                                    <Space align="end">
+                                        <div>{moment(i?.date).format('HH:mm:ss')}</div>
+                                        <Card
+                                            style={{
+                                                fontWeight: 600,
+                                                // maxWidth: 'calc( 100% - 150px)',
+                                                backgroundColor: '#1677ff'
+                                            }}>
+                                            {i?.text}
+                                        </Card>
+                                    </Space>
                                 </Grid>
                                 // <Space justify={'end'} style={{ width: '100%', marginTop: '10px' }}>
                                 // </Space>

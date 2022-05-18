@@ -2,7 +2,6 @@
   "name": "aimmed-web",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://sgoh0323.github.io/health-app/",
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "@fullcalendar/daygrid": "^5.5.0",
@@ -55,7 +54,7 @@
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b main -d build"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -90,6 +89,7 @@
     "eslint-plugin-prettier": "^3.2.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^4.0.0",
     "prettier": "^2.2.1",
     "react-app-rewire-alias": "^0.1.8",
     "react-app-rewired": "^2.1.7",
@@ -117,5 +117,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://sgoh0323.github.io/health-app"
 }
