@@ -2,7 +2,7 @@
   "name": "aimmed-web",
   "version": "0.1.0",
   "private": true,
-  "homepage":"http://sgoh0323.github.io/health-app",
+  "homepage":"https://sgoh0323.github.io/health-app/",
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "@fullcalendar/daygrid": "^5.5.0",
