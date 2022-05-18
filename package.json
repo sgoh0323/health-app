@@ -2,6 +2,7 @@
   "name": "aimmed-web",
   "version": "0.1.0",
   "private": true,
+  "homepage":"http://sgoh0323.github.io/health-app",
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "@fullcalendar/daygrid": "^5.5.0",
@@ -52,7 +53,9 @@
     "build": "env-cmd -e dev react-app-rewired build",
     "build:real": "env-cmd -e prod react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
