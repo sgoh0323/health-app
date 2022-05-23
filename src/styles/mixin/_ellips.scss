@@ -1,0 +1,7 @@
+
+// 한줄 말줄임
+@mixin ellips {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
