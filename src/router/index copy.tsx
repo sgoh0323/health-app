@@ -61,41 +61,7 @@ const Router: React.FunctionComponent = () => {
                             return (
                                 <TransitionGroup>
                                     <CSSTransition key={location.key} classNames="fade" timeout={300}>
-                                        <Template
-                                            header={{ title: 'aimmed' }}
-                                            content={
-                                                <Switch location={location}>
-                                                    <Route exact path="/error" component={page500} />
-                                                    <Route exact path="/404" component={page404} />
-                                                    {/* <Route exact path="/dashboard" component={DashBoard} /> */}
-                                                    {menuSubItemList &&
-                                                        madeRouteList(menuSubItemList).map(route => {
-                                                            return (
-                                                                <Route
-                                                                    path={route.path}
-                                                                    exact={!route.dontUseExact}
-                                                                    key={`${route.key}/:id`}
-                                                                    component={route.components}
-                                                                />
-                                                            );
-                                                        })}
-                                                    {menuSubItemList.length > 0 && (
-                                                        <Route path="*" component={page404} />
-                                                    )}
-                                                    {/* <Route
-                                                            exact
-                                                            path="/dashboard"
-                                                            component={COMPONENT_LIST.dashboard}
-                                                        />
-                                                        <Route
-                                                            exact
-                                                            path="/userMgmt/list"
-                                                            component={COMPONENT_LIST.userList}
-                                                        />
-                                                        <Route path="*" component={page404} /> */}
-                                                </Switch>
-                                            }
-                                        />
+                                        {/*  */}
                                     </CSSTransition>
                                 </TransitionGroup>
                             );

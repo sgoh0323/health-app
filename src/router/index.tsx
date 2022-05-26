@@ -1,6 +1,6 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { HashRouter, Switch, Route, Redirect, useHistory, Link } from 'react-router-dom';
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import useUser from 'hooks/user';
 // import { menuState } from 'stores/user/state';
 
@@ -35,7 +35,9 @@ const Router: React.FunctionComponent = () => {
             path: '/home',
             level: 0,
             parentKey: '',
-            components: 'home'
+            components: 'home',
+            header: false,
+            tabnav: true
         },
         {
             icon: null,
@@ -44,7 +46,9 @@ const Router: React.FunctionComponent = () => {
             path: '/chat',
             level: 0,
             parentKey: '',
-            components: 'chat'
+            components: 'chat',
+            header: false,
+            tabnav: false
         },
         {
             icon: null,
@@ -53,7 +57,9 @@ const Router: React.FunctionComponent = () => {
             path: '/faq',
             level: 0,
             parentKey: '',
-            components: 'faq'
+            components: 'faq',
+            header: true,
+            tabnav: true
         },
         {
             icon: null,
@@ -62,7 +68,9 @@ const Router: React.FunctionComponent = () => {
             path: '/mypage',
             level: 0,
             parentKey: '',
-            components: 'mypage'
+            components: 'mypage',
+            header: true,
+            tabnav: true
         },
         {
             icon: null,
@@ -71,7 +79,9 @@ const Router: React.FunctionComponent = () => {
             path: '/changepwd',
             level: 0,
             parentKey: '',
-            components: 'changepwd'
+            components: 'changepwd',
+            header: true,
+            tabnav: true
         },
         {
             icon: null,
@@ -80,7 +90,9 @@ const Router: React.FunctionComponent = () => {
             path: '/findpwd',
             level: 0,
             parentKey: '',
-            components: 'findpwd'
+            components: 'findpwd',
+            header: true,
+            tabnav: true
         },
         {
             icon: null,
@@ -89,7 +101,9 @@ const Router: React.FunctionComponent = () => {
             path: '/notisetting',
             level: 0,
             parentKey: '',
-            components: 'notisetting'
+            components: 'notisetting',
+            header: true,
+            tabnav: true
         }
     ];
     const madeRouteList = apiRoutes => {
@@ -174,38 +188,40 @@ const Router: React.FunctionComponent = () => {
                                             className="aimmed_nav">
                                             건강코칭
                                         </NavBar> */}
-                                        <Navbar />
-                                        <main
-                                            style={{
-                                                position: 'fixed',
-                                                top: 45,
-                                                height: 'calc( 100vh - 95px )',
-                                                overflowY: 'auto',
-                                                overflowX: 'hidden',
-                                                // padding: '10px',
-                                                width: '100vW'
-                                            }}>
-                                            <TransitionGroup>
-                                                <CSSTransition key={location.key} classNames="fade" timeout={300}>
-                                                    <Switch location={location}>
-                                                        <Route exact path="/error" component={page500} />
-                                                        <Route exact path="/404" component={page404} />
-                                                        {/* <Route exact path="/dashboard" component={DashBoard} /> */}
-                                                        {menuSubItemList &&
-                                                            madeRouteList(menuSubItemList).map(route => {
-                                                                return (
-                                                                    <Route
-                                                                        path={route.path}
-                                                                        exact={!route.dontUseExact}
-                                                                        key={`${route.key}/:id`}
-                                                                        component={route.components}
-                                                                    />
-                                                                );
-                                                            })}
-                                                        {menuSubItemList.length > 0 && (
-                                                            <Route path="*" component={page404} />
-                                                        )}
-                                                        {/* <Route
+                                        {/* <Navbar /> */}
+
+                                        <TransitionGroup>
+                                            <CSSTransition key={location.key} classNames="fade" timeout={300}>
+                                                <Switch location={location}>
+                                                    <Route exact path="/error" component={page500} />
+                                                    <Route exact path="/404" component={page404} />
+                                                    {/* <Route exact path="/dashboard" component={DashBoard} /> */}
+                                                    {menuSubItemList &&
+                                                        madeRouteList(menuSubItemList).map(route => {
+                                                            return (
+                                                                // <main
+                                                                //     style={{
+                                                                //         position: 'fixed',
+                                                                //         top: `${route.header ? 45 : 0}`,
+                                                                //         height: `calc( 100vh ${
+                                                                //             route.header ? '-45px' : ''
+                                                                //         }${route.tabnav ? '-50px' : ''})`,
+                                                                //         overflowY: 'auto',
+                                                                //         overflowX: 'hidden',
+                                                                //         // padding: '10px',
+                                                                //         width: '100vW'
+                                                                //     }}>
+                                                                <Route
+                                                                    path={route.path}
+                                                                    exact={!route.dontUseExact}
+                                                                    key={`${route.key}/:id`}
+                                                                    component={route.components}
+                                                                />
+                                                                // </main>
+                                                            );
+                                                        })}
+                                                    <Route path="*" component={page404} />
+                                                    {/* <Route
                                                             exact
                                                             path="/dashboard"
                                                             component={COMPONENT_LIST.dashboard}
@@ -216,10 +232,10 @@ const Router: React.FunctionComponent = () => {
                                                             component={COMPONENT_LIST.userList}
                                                         />
                                                         <Route path="*" component={page404} /> */}
-                                                    </Switch>
-                                                </CSSTransition>
-                                            </TransitionGroup>
-                                        </main>
+                                                </Switch>
+                                            </CSSTransition>
+                                        </TransitionGroup>
+
                                         {/* <TabMenu tabs={tabs} location={location} /> */}
                                         <TabMenu />
                                     </>
@@ -230,13 +246,11 @@ const Router: React.FunctionComponent = () => {
                 </>
             )}{' '}
             {!vSplash && userInfo?.userId === '' && (
-                <HashRouter>
-                    {/* <Suspense fallback={<PageLoading />}> */}
-                    <Switch>
-                        <Route exact path="*" component={Login} />
-                        <Route exact path="/findpwd" component={FindPWD} />
-                    </Switch>
-                </HashRouter>
+                <Switch>
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/findpwd" component={FindPWD} />
+                    <Route exact path="*" component={Login} />
+                </Switch>
             )}
         </HashRouter>
     );

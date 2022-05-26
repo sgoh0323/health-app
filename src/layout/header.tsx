@@ -4,9 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Row, Button, Space, Badge } from 'antd';
 import { BellOutlined, MenuOutlined, TeamOutlined, WindowsFilled } from '@ant-design/icons';
 
-import { IHeaderProps } from './interface';
-
-const Header: React.FunctionComponent<IHeaderProps> = ({ userInfo, nonReadInfo, onCollapse, onClickLogOut }) => {
+const Header = ({ userInfo, nonReadInfo, onCollapse, onClickLogOut }) => {
     const history = useHistory();
     return (
         <header className="aimmed__content__header">

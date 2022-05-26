@@ -1,6 +1,15 @@
-import { AppleOutlined, MessageFilled, MessageOutlined, UnorderedListOutlined, UserOutlined } from '@ant-design/icons';
+import {
+    AppleOutlined,
+    BulbOutlined,
+    HomeOutlined,
+    MessageFilled,
+    MessageOutlined,
+    NotificationOutlined,
+    UnorderedListOutlined,
+    UserOutlined
+} from '@ant-design/icons';
 import { TabBar } from 'antd-mobile';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
 const TabMenu = ({ location, history }) => {
@@ -11,8 +20,8 @@ const TabMenu = ({ location, history }) => {
     const tabs = [
         {
             key: 'sample',
-            title: '케어코칭',
-            icon: <AppleOutlined />,
+            title: '건강코칭',
+            icon: <NotificationOutlined />,
             // badge: Badge.dot,
             path: '/sample',
             tabNav: true,
@@ -20,8 +29,8 @@ const TabMenu = ({ location, history }) => {
         },
         {
             key: 'chat',
-            title: '상담',
-            icon: <UnorderedListOutlined />,
+            title: '건강상담',
+            icon: <MessageFilled />,
             // badge: '5',
             path: '/chat',
             tabNav: false,
@@ -30,7 +39,7 @@ const TabMenu = ({ location, history }) => {
         {
             key: 'home',
             title: '홈',
-            icon: <UnorderedListOutlined />,
+            icon: <HomeOutlined />,
             // badge: '5',
             path: '/home',
             tabNav: true,
@@ -38,8 +47,8 @@ const TabMenu = ({ location, history }) => {
         },
         {
             key: 'message',
-            title: '모바일보건센터',
-            icon: (active: boolean) => (active ? <MessageFilled /> : <MessageOutlined />),
+            title: '건강습관',
+            icon: <BulbOutlined />,
             // badge: '99+',
             path: '/partner/notice/new',
             tabNav: true,
@@ -47,14 +56,14 @@ const TabMenu = ({ location, history }) => {
         },
         {
             key: 'mypage',
-            title: '마이페이지',
+            title: '내정보',
             path: '/mypage',
             icon: <UserOutlined />,
             tabNav: true,
             header: true
         }
     ];
-    useEffect(() => {
+    useLayoutEffect(() => {
         setVisiable(location.pathname !== '/chat');
     }, [location]);
     return (

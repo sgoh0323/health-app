@@ -71,8 +71,8 @@ const EChart = () => {
                     width: 50,
                     height: 10,
                     fontSize: 10,
-                    color: 'auto',
-                    borderColor: 'auto',
+                    // color: 'auto',
+                    // borderColor: 'auto',
                     borderRadius: 20,
                     borderWidth: 1,
                     formatter: '{value}%'
@@ -81,6 +81,15 @@ const EChart = () => {
         ]
     });
 
-    return <ECharts option={options} opts={{ renderer: 'svg', width: 'auto', height: 'auto' }} />;
+    return (
+        <ECharts
+            option={options}
+            opts={{ height: 250 }}
+            style={{
+                height: '100%',
+                width: '100%'
+            }}
+        />
+    );
 };
 export default EChart;

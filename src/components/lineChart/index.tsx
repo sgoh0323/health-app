@@ -25,6 +25,14 @@ const LineChart = () => {
         ]
     });
 
-    return <ECharts option={options} opts={{ renderer: 'svg', width: 'auto', height: 'auto' }} />;
+    return (
+        <ECharts
+            option={options}
+            style={{
+                height: '100%',
+                width: '100%'
+            }}
+        />
+    );
 };
 export default LineChart;

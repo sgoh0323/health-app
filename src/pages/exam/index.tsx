@@ -14,11 +14,15 @@ import {
     Input,
     Checkbox
 } from 'antd-mobile';
+import Layout from 'layout';
 import React, { useRef, useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { menus } from 'router/menu';
 
-const Exam = () => {
+const Exam = ({ location, history }) => {
     const scrollViewRef = useRef(null);
     const [form] = Form.useForm();
+    const item = menus[location.pathname];
     const [examList, setExamList] = useState([
         {
             key: 0,
@@ -166,81 +170,88 @@ const Exam = () => {
         idx: 2
     });
     return (
-        <>
-            <div style={{ textAlign: 'center' }}>
-                모든항목을 빠짐없이 입력할수록
-                <br /> 보다 정확한 분석 결과를 받으실수 있습니다.
-            </div>
-            <Steps current={current.key}>
-                {examList.map((i, index) => {
-                    // return <Steps.Step icon={index === current ? <CheckCircleFilled /> : undefined} />;
-                    return <Steps.Step />;
-                })}
-            </Steps>
-            <Card>
-                <AutoCenter>
-                    <div>{current.q_title}</div>
-                </AutoCenter>
-                <AutoCenter>
-                    <div>{current.q_subTitle}</div>
-                </AutoCenter>
-                <Divider />
-                <Form form={form}>
-                    <div>
-                        {current.a_list.length > 0 &&
-                            current.a_list.map(i => {
-                                const rsElement = el => {
-                                    if (el.type === 'input') {
-                                        return (
-                                            <Form.Item
-                                                name={el.name}
-                                                label={el.label}
-                                                rules={[
-                                                    {
-                                                        required: true
-                                                    }
-                                                ]}>
-                                                <Input />
-                                            </Form.Item>
-                                        );
-                                    } else if (el.type === 'checkbox') {
-                                        return (
-                                            <Form.Item
-                                                name={el.name}
-                                                label={el.label}
-                                                rules={[
-                                                    {
-                                                        required: true
-                                                    }
-                                                ]}>
-                                                <Checkbox.Group>
-                                                    <Space direction="vertical">
-                                                        {el.options.map(e => {
-                                                            return <Checkbox value={e.value}>{e.label} </Checkbox>;
-                                                        })}
-                                                    </Space>
-                                                </Checkbox.Group>
-                                            </Form.Item>
-                                        );
-                                    }
-                                };
-                                return rsElement(i);
-                            })}
+        <Layout
+            item={item}
+            contents={
+                <>
+                    <div style={{ textAlign: 'center' }}>
+                        모든항목을 빠짐없이 입력할수록
+                        <br /> 보다 정확한 분석 결과를 받으실수 있습니다.
                     </div>
-                </Form>
-            </Card>
-            <Space justify="between" style={{ width: '100%', marginTop: '10px' }}>
-                <Button>
-                    <LeftOutlined />
-                    이전
-                </Button>
-                <Button>
-                    다음
-                    <RightOutlined />
-                </Button>
-            </Space>
-        </>
+                    <Steps current={current.key}>
+                        {examList.map((i, index) => {
+                            // return <Steps.Step icon={index === current ? <CheckCircleFilled /> : undefined} />;
+                            return <Steps.Step />;
+                        })}
+                    </Steps>
+                    <Card>
+                        <AutoCenter>
+                            <div>{current.q_title}</div>
+                        </AutoCenter>
+                        <AutoCenter>
+                            <div>{current.q_subTitle}</div>
+                        </AutoCenter>
+                        <Divider />
+                        <Form form={form}>
+                            <div>
+                                {current.a_list.length > 0 &&
+                                    current.a_list.map(i => {
+                                        const rsElement = el => {
+                                            if (el.type === 'input') {
+                                                return (
+                                                    <Form.Item
+                                                        name={el.name}
+                                                        label={el.label}
+                                                        rules={[
+                                                            {
+                                                                required: true
+                                                            }
+                                                        ]}>
+                                                        <Input />
+                                                    </Form.Item>
+                                                );
+                                            } else if (el.type === 'checkbox') {
+                                                return (
+                                                    <Form.Item
+                                                        name={el.name}
+                                                        label={el.label}
+                                                        rules={[
+                                                            {
+                                                                required: true
+                                                            }
+                                                        ]}>
+                                                        <Checkbox.Group>
+                                                            <Space direction="vertical">
+                                                                {el.options.map(e => {
+                                                                    return (
+                                                                        <Checkbox value={e.value}>{e.label} </Checkbox>
+                                                                    );
+                                                                })}
+                                                            </Space>
+                                                        </Checkbox.Group>
+                                                    </Form.Item>
+                                                );
+                                            }
+                                        };
+                                        return rsElement(i);
+                                    })}
+                            </div>
+                        </Form>
+                    </Card>
+                    <Space justify="between" style={{ width: '100%', marginTop: '10px' }}>
+                        <Button>
+                            <LeftOutlined />
+                            이전
+                        </Button>
+                        <Button>
+                            다음
+                            <RightOutlined />
+                        </Button>
+                    </Space>
+                </>
+            }
+        />
     );
 };
 
-export default Exam;
+export default withRouter(Exam);

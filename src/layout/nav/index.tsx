@@ -1,23 +1,18 @@
-import { UnorderedListOutlined } from '@ant-design/icons';
+import { LeftOutline } from 'antd-mobile-icons';
 import { Button, NavBar, Popup, TabBar } from 'antd-mobile';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { menus } from 'router/menu';
 
-const NavBarCompornent = ({ location, history }) => {
-    console.log(location);
-    console.log(history);
-    const [back, setback] = useState(true);
+const NavBarCompornent = ({ item }) => {
+    const history = useHistory();
+    console.log(item);
     const [visible, setVisible] = useState(false);
     const [popupVisible, setPopupVisible] = useState(false);
     useLayoutEffect(() => {
         console.log('location');
-        console.log(location);
-        console.log(menus[location.pathname]);
-
-        // setback(location.pathname === '/chat');
-        setVisible(menus[location.pathname].header);
-    }, [location]);
+        setVisible(item?.header);
+    }, [item]);
     return (
         <>
             {visible && (
@@ -30,9 +25,9 @@ const NavBarCompornent = ({ location, history }) => {
                         //     setVisible(true);
                         // }
                     }}
-                    backArrow={<UnorderedListOutlined />}
+                    backArrow={<LeftOutline />}
                     className="aimmed_nav">
-                    {menus[location.pathname].label}
+                    {item.label}
                 </NavBar>
             )}
             <Popup
@@ -53,4 +48,4 @@ const NavBarCompornent = ({ location, history }) => {
     );
 };
 
-export default withRouter(NavBarCompornent);
+export default React.memo(NavBarCompornent);

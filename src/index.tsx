@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from 'stores';
 import { CookiesProvider } from 'react-cookie';
@@ -32,27 +32,13 @@ const mergedNextColor = {
 ConfigProvider.config({
     theme: mergedNextColor
 });
-document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(
-        <Provider store={store}>
-            {/* <ConfigProvider locale={kor}> */}
-            <CookiesProvider>
-                <App />
-            </CookiesProvider>
-            {/* </ConfigProvider> */}
-        </Provider>,
-        // document.querySelector('#app')
-        document.querySelector('#root')
-    );
-});
-
-// ReactDOM.render(
-//     <Provider store={store}>
-//         <ConfigProvider locale={kor}>
-//             <CookiesProvider>
-//                 <App />
-//             </CookiesProvider>
-//         </ConfigProvider>
-//     </Provider>,
-//     document.getElementById('root')
-// );
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <Provider store={store}>
+        {/* <ConfigProvider locale={kor}> */}
+        <CookiesProvider>
+            <App />
+        </CookiesProvider>
+        {/* </ConfigProvider> */}
+    </Provider>
+);

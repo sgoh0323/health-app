@@ -25,14 +25,13 @@ const Chat = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [textList, setTextList] = useState([
         { text: '<a>건강상태 질문</a><tag>aa</tag>', type: 'bot', date: '2022-05-15 17:52:32' },
-        { text: '건강상태 대답', type: 'user', date: '2022-05-15 17:52:32' },
         {
-            text: '건강상태에 따른 챗봇에 대화가 이루어 집니다.\n챗봇에 대답은 지연될수있습니다. ',
-            type: 'bot',
+            text: '건강상태 대답',
+            type: 'user',
             date: '2022-05-15 17:52:32'
         },
         {
-            text: '건강상태에 따른 챗봇에 대화가 이루어 집니다.\n챗봇에 대답은 지연될수있습니다.111111111 ',
+            text: '건강상태에 따른 챗봇에 대화가 이루어 집니다.\n챗봇에 대답은 지연될수있습니다. ',
             type: 'bot',
             date: '2022-05-15 17:52:32'
         }
@@ -65,28 +64,28 @@ const Chat = () => {
         ];
         setTextList(tmpMsgList);
         setMsg('');
-        getDirectQuestions({ message: msg, sender: getRandomArbitrary(1000, 9999) }, data => {
-            setIsLoading(false);
-            setTextList([
-                ...tmpMsgList,
-                {
-                    text: data,
-                    type: 'bot',
-                    date: '2022-05-15 17:52:32'
-                }
-            ]);
-        });
-        // setTimeout(() => {
+        // getDirectQuestions({ message: msg, sender: getRandomArbitrary(1000, 9999) }, data => {
         //     setIsLoading(false);
         //     setTextList([
         //         ...tmpMsgList,
         //         {
-        //             text: '대답 : ' + msg,
+        //             text: data,
         //             type: 'bot',
         //             date: '2022-05-15 17:52:32'
         //         }
         //     ]);
-        // }, 1000);
+        // });
+        setTimeout(() => {
+            setIsLoading(false);
+            setTextList([
+                ...tmpMsgList,
+                {
+                    text: '대답 : ' + msg,
+                    type: 'bot',
+                    date: '2022-05-15 17:52:32'
+                }
+            ]);
+        }, 1000);
     };
     return (
         <>
@@ -110,24 +109,47 @@ const Chat = () => {
                                     </Space>
                                 </Grid>
                             ) : (
-                                <Grid
-                                    columns={1}
-                                    gap={3}
+                                // <Grid
+                                //     columns={1}
+                                //     gap={3}
+                                //     style={{
+                                //         display: 'flex',
+                                //         margin: 10,
+                                //         justifyContent: 'end',
+                                //         overflowWrap: 'anywhere',
+                                //         textAlign: 'end'
+                                //     }}>
+                                //     <Card
+                                //         style={{
+                                //             fontWeight: 600,
+                                //             maxWidth: 'calc( 100% - 150px)',
+                                //             backgroundColor: '#1677ff'
+                                //         }}>
+                                //         {i?.text}
+                                //     </Card>
+                                // </Grid>
+                                <div
                                     style={{
                                         display: 'flex',
                                         margin: 10,
                                         justifyContent: 'end',
                                         overflowWrap: 'anywhere'
+                                        // maxWidth: 'calc( 100% - 150px)'
                                     }}>
+                                    <Space align="end">
+                                        <div>{moment(i?.date).format('HH:mm:ss')}</div>
+                                    </Space>
                                     <Card
                                         style={{
+                                            marginLeft: 5,
                                             fontWeight: 600,
+                                            width: 'fit-contents',
                                             maxWidth: 'calc( 100% - 150px)',
                                             backgroundColor: '#1677ff'
                                         }}>
                                         {i?.text}
                                     </Card>
-                                </Grid>
+                                </div>
                                 // <Space justify={'end'} style={{ width: '100%', marginTop: '10px' }}>
                                 // </Space>
                             )}
@@ -150,7 +172,7 @@ const Chat = () => {
                         </Card>
                     </Grid>
                 )}
-                <Grid columns={1} gap={5} style={{ display: 'flex', margin: 10 }}>
+                {/* <Grid columns={1} gap={5} style={{ display: 'flex', margin: 10 }}>
                     <Avatar src="" style={{ '--size': '46px' }} />
                     <Card style={{ fontWeight: 600, maxWidth: 'calc( 100% - 150px)' }}>
                         <ReactTinyLink
@@ -161,7 +183,7 @@ const Chat = () => {
                             url="https://andrewandco.co.kr/surl/P/496/?cafe_mkt=ue_1019_secret_pc&NaPm=ci%3D5hlelMmjmJSKqVuwLGlTolrA%7Ctr%3Dgfa%7Cct%3Dl39w2jcg%7Chk%3D5a8f8afd7fe79fe4198af35aaf829794975d14de"
                         />
                     </Card>
-                </Grid>
+                </Grid> */}
                 <Link to="/faq">
                     <FloatingBubble
                         axis="x"
