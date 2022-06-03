@@ -1,10 +1,15 @@
 import { Space, Divider, List, AutoCenter } from 'antd-mobile';
 import Layout from 'layout';
+import { useEffect } from 'react';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { menus } from 'router/menu';
 
-const Mypage = ({ location, history }) => {
+const Mypage = ({ history }) => {
     const item = menus[location.pathname];
+    useEffect(() => {
+        console.log('item~~!!!!!!!!!!!');
+        console.log(item);
+    }, []);
 
     return (
         <Layout

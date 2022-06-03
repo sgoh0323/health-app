@@ -12,6 +12,8 @@ const Mypage = lazy(() => import('../pages/mypage'));
 const ChangePwd = lazy(() => import('../pages/changePwd'));
 const FindPWD = lazy(() => import('../pages/findPwd'));
 const NotificationSettings = lazy(() => import('../pages/notificationSettings'));
+const Coaching = lazy(() => import('../pages/healthCoaching'));
+const Habit = lazy(() => import('../pages/healthHabit'));
 
 export const COMPONENT_LIST = {
     partnerNoticeList: Exam,
@@ -21,5 +23,7 @@ export const COMPONENT_LIST = {
     mypage: Mypage,
     changepwd: ChangePwd,
     findpwd: FindPWD,
-    notisetting: NotificationSettings
+    notisetting: NotificationSettings,
+    coaching: Coaching,
+    habit: Habit
 };

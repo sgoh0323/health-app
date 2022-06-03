@@ -1,6 +1,8 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { ILayoutProps } from './interface';
 import Nav from './nav';
+import TabMenu from './tabMenu';
 
 const Layout = ({ item, contents }) => {
     return (
@@ -14,10 +16,14 @@ const Layout = ({ item, contents }) => {
                     overflowY: 'auto',
                     overflowX: 'hidden',
                     // padding: '10px',
-                    width: '100vW'
+                    width: '100vW',
+                    backgroundColor: '#ddf1fb'
                 }}>
-                {contents}
+                <motion.div initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+                    {contents}
+                </motion.div>
             </div>
+            <TabMenu />
         </>
     );
 };

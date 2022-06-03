@@ -75,5 +75,27 @@ export const menus = {
         components: 'notisetting',
         header: true,
         tabnav: true
+    },
+    '/coaching': {
+        icon: null,
+        key: 'coaching',
+        label: '건강 코칭',
+        path: '/coaching',
+        level: 0,
+        parentKey: '',
+        components: 'coaching',
+        header: true,
+        tabnav: true
+    },
+    '/habit': {
+        icon: null,
+        key: 'habit',
+        label: '건강 습관',
+        path: '/habit',
+        level: 0,
+        parentKey: '',
+        components: 'habit',
+        header: true,
+        tabnav: true
     }
 };

@@ -24,16 +24,26 @@ const Chat = () => {
     const [msg, setMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [textList, setTextList] = useState([
-        { text: '<a>건강상태 질문</a><tag>aa</tag>', type: 'bot', date: '2022-05-15 17:52:32' },
+        { text: '안녕하세요 000님, 무엇을 도와드릴까요?', type: 'bot', date: '2022-05-15 17:52:32' },
         {
-            text: '건강상태 대답',
+            text: '이상지질혈증에 대해 궁금한 점이 있습니다.',
             type: 'user',
-            date: '2022-05-15 17:52:32'
+            date: '2022-05-15 17:53:32'
         },
         {
-            text: '건강상태에 따른 챗봇에 대화가 이루어 집니다.\n챗봇에 대답은 지연될수있습니다. ',
+            text: '어떤 점이 궁금하신가요?',
             type: 'bot',
-            date: '2022-05-15 17:52:32'
+            date: '2022-05-15 17:53:33'
+        },
+        {
+            text: 'HDL콜레스테롤 수치는 감소하면 위험한가요?',
+            type: 'user',
+            date: '2022-05-15 17:54:01'
+        },
+        {
+            text: 'HDL콜레스테롤은 40mg/dl 미만이면 낮은 것으로 판단하며, 혈액 내 HDL콜레스테롤 수치는 높을수록 동맥경화를 예방할 수 있어 좋은 콜레스테롤로 알려져 있습니다.',
+            type: 'bot',
+            date: '2022-05-15 17:54:03'
         }
     ]);
     const [text, setText] = useState('');
@@ -59,7 +69,7 @@ const Chat = () => {
             {
                 text: msg,
                 type: 'user',
-                date: '2022-05-15 17:52:32'
+                date: moment().format('YYYY-MM-DD HH:mm:ss')
             }
         ];
         setTextList(tmpMsgList);
@@ -82,7 +92,7 @@ const Chat = () => {
                 {
                     text: '대답 : ' + msg,
                     type: 'bot',
-                    date: '2022-05-15 17:52:32'
+                    date: moment().format('YYYY-MM-DD HH:mm:ss')
                 }
             ]);
         }, 1000);

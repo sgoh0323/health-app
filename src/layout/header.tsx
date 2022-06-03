@@ -16,7 +16,7 @@ const Header = ({ userInfo, nonReadInfo, onCollapse, onClickLogOut }) => {
                             style={{ marginLeft: '10px', fontSize: '20px', cursor: 'pointer' }}
                         />
                         <span className="aimmed__content__header__space__name" style={{ marginLeft: '20px' }}>
-                            {userInfo && `${userInfo.name ? `${userInfo.name}님 반갑습니다.` : ''}`}
+                            {userInfo && `${userInfo.name ? `${userInfo.name}(${userInfo.id})님 반갑습니다.` : ''}`}
                             관리자화면입니다.
                         </span>
                     </Space>

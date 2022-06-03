@@ -1,5 +1,6 @@
 import React, { RefObject, useState } from 'react';
 import { EChart, Template } from 'components';
+import { motion } from 'framer-motion';
 import {
     Badge,
     Button,
@@ -28,6 +29,7 @@ import { menus } from 'router/menu';
 import Layout from 'layout';
 import { withRouter } from 'react-router-dom';
 import MyResponsivePie from 'components/pieChart';
+import ScrollViewContainer from 'components/animation/ScrollViewContainer';
 // import { DatePicker } from 'antd';
 
 const { Step } = Steps;
@@ -79,11 +81,21 @@ const Login = ({ location, history }) => {
                         </div>
                     </Space>
                     <Space />
-                    <Card title="미션 수행도">
-                        <EChart />
-                    </Card>
+                    <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{
+                            delay: 0,
+                            type: 'spring',
+                            stiffness: 260,
+                            damping: 20
+                        }}>
+                        <Card title="미션 수행도">
+                            <EChart />
+                        </Card>
+                    </motion.div>
                     <Space />
-                    <Card title="미션 수행도">
+                    {/* <Card title="미션 수행도">
                         <div style={{ width: '90%', height: '40vh' }}>
                             <MyResponsivePie
                                 data={[
@@ -99,58 +111,275 @@ const Login = ({ location, history }) => {
                             />
                         </div>
                     </Card>
+                    <Space /> */}
+                    <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{
+                            delay: 0.1,
+                            type: 'spring',
+                            stiffness: 260,
+                            damping: 20
+                        }}>
+                        <Card title="오늘의 활동량(운동/걸음수)">
+                            <LineChart />
+                        </Card>
+                    </motion.div>
                     <Space />
-
-                    <Card title="오늘의 활동량(운동/걸음수)">
-                        <LineChart />
-                    </Card>
+                    <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{
+                            delay: 0.2,
+                            type: 'spring',
+                            stiffness: 260,
+                            damping: 20
+                        }}>
+                        <Card title="영양섭취 기록">
+                            <LineChart />
+                        </Card>
+                    </motion.div>
                     <Space />
-                    <Card title="영양섭취 기록">
-                        <LineChart />
-                    </Card>
+                    <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{
+                            delay: 0.3,
+                            type: 'spring',
+                            stiffness: 260,
+                            damping: 20
+                        }}>
+                        <Card title="미션 수행도">
+                            <CapsuleTabs>
+                                <CapsuleTabs.Tab title={<div>1주차</div>} key="fruits">
+                                    <Steps direction="vertical" key={2}>
+                                        <Step
+                                            title="미션1"
+                                            status="finish"
+                                            key={1}
+                                            children={<div>체중재기</div>}
+                                            description={<div>체중재기</div>}
+                                        />
+                                        <Step
+                                            title="미션2"
+                                            key={2}
+                                            children={<div>체중재기</div>}
+                                            description={<div>천리길도 한걸음부터</div>}
+                                            status="process"
+                                        />
+                                        <Step title="미션3" key={3} status="wait" />
+                                    </Steps>
+                                </CapsuleTabs.Tab>
+                                <CapsuleTabs.Tab title={<div>2주차</div>} key="vegetables">
+                                    2주차
+                                </CapsuleTabs.Tab>
+                                <CapsuleTabs.Tab title={<div>3주차</div>} key="animals1">
+                                    3주차
+                                </CapsuleTabs.Tab>
+                                <CapsuleTabs.Tab title={<div>4주차</div>} key="animals2">
+                                    3주차
+                                </CapsuleTabs.Tab>
+                                <CapsuleTabs.Tab title={<div>5주차</div>} key="animals3">
+                                    3주차
+                                </CapsuleTabs.Tab>
+                                <CapsuleTabs.Tab title={<div>6주차</div>} key="animals4">
+                                    3주차
+                                </CapsuleTabs.Tab>
+                                <CapsuleTabs.Tab title={<div>7주차</div>} key="animals5">
+                                    3주차
+                                </CapsuleTabs.Tab>
+                                <CapsuleTabs.Tab title={<div>8주차</div>} key="animals6">
+                                    3주차
+                                </CapsuleTabs.Tab>
+                                <CapsuleTabs.Tab title={<div>9주차</div>} key="animals7">
+                                    3주차
+                                </CapsuleTabs.Tab>
+                            </CapsuleTabs>
+                        </Card>
+                    </motion.div>
                     <Space />
-                    <Card title="미션 수행도">
-                        <CapsuleTabs>
-                            <CapsuleTabs.Tab title={<div>1주차</div>} key="fruits">
-                                <Steps direction="vertical">
-                                    <Step
-                                        title="미션1"
-                                        status="process"
-                                        children={<div>asdajsdk</div>}
-                                        description={<div>asdajsdk</div>}
-                                    />
-                                    <Step title="미션2" status="wait" />
-                                    <Step title="미션3" status="wait" />
-                                </Steps>
-                            </CapsuleTabs.Tab>
-                            <CapsuleTabs.Tab title={<div>2주차</div>} key="vegetables">
-                                2주차
-                            </CapsuleTabs.Tab>
-                            <CapsuleTabs.Tab title={<div>3주차</div>} key="animals1">
-                                3주차
-                            </CapsuleTabs.Tab>
-                            <CapsuleTabs.Tab title={<div>4주차</div>} key="animals2">
-                                3주차
-                            </CapsuleTabs.Tab>
-                            <CapsuleTabs.Tab title={<div>5주차</div>} key="animals3">
-                                3주차
-                            </CapsuleTabs.Tab>
-                            <CapsuleTabs.Tab title={<div>6주차</div>} key="animals4">
-                                3주차
-                            </CapsuleTabs.Tab>
-                            <CapsuleTabs.Tab title={<div>7주차</div>} key="animals5">
-                                3주차
-                            </CapsuleTabs.Tab>
-                            <CapsuleTabs.Tab title={<div>8주차</div>} key="animals6">
-                                3주차
-                            </CapsuleTabs.Tab>
-                            <CapsuleTabs.Tab title={<div>9주차</div>} key="animals7">
-                                3주차
-                            </CapsuleTabs.Tab>
-                        </CapsuleTabs>
-                    </Card>
+                    <ScrollViewContainer>
+                        <Card title="미션 수행도">
+                            <CapsuleTabs>
+                                <CapsuleTabs.Tab title={<div>1주차</div>} key="fruits">
+                                    <Steps direction="vertical" key={2}>
+                                        <Step
+                                            title="미션1"
+                                            status="finish"
+                                            key={1}
+                                            children={<div>체중재기</div>}
+                                            description={<div>체중재기</div>}
+                                        />
+                                        <Step
+                                            title="미션2"
+                                            key={2}
+                                            children={<div>체중재기</div>}
+                                            description={<div>천리길도 한걸음부터</div>}
+                                            status="process"
+                                        />
+                                        <Step title="미션3" key={3} status="wait" />
+                                    </Steps>
+                                </CapsuleTabs.Tab>
+                            </CapsuleTabs>
+                        </Card>
+                    </ScrollViewContainer>
                     <Space />
-                    <input type="file" accept="image/*" capture="camera" />
+                    <ScrollViewContainer>
+                        <Card title="미션 수행도">
+                            <CapsuleTabs>
+                                <CapsuleTabs.Tab title={<div>1주차</div>} key="fruits">
+                                    <Steps direction="vertical" key={2}>
+                                        <Step
+                                            title="미션1"
+                                            status="finish"
+                                            key={1}
+                                            children={<div>체중재기</div>}
+                                            description={<div>체중재기</div>}
+                                        />
+                                        <Step
+                                            title="미션2"
+                                            key={2}
+                                            children={<div>체중재기</div>}
+                                            description={<div>천리길도 한걸음부터</div>}
+                                            status="process"
+                                        />
+                                        <Step title="미션3" key={3} status="wait" />
+                                    </Steps>
+                                </CapsuleTabs.Tab>
+                            </CapsuleTabs>
+                        </Card>
+                    </ScrollViewContainer>
+                    <Space />
+                    <ScrollViewContainer>
+                        <Card title="미션 수행도">
+                            <CapsuleTabs>
+                                <CapsuleTabs.Tab title={<div>1주차</div>} key="fruits">
+                                    <Steps direction="vertical" key={2}>
+                                        <Step
+                                            title="미션1"
+                                            status="finish"
+                                            key={1}
+                                            children={<div>체중재기</div>}
+                                            description={<div>체중재기</div>}
+                                        />
+                                        <Step
+                                            title="미션2"
+                                            key={2}
+                                            children={<div>체중재기</div>}
+                                            description={<div>천리길도 한걸음부터</div>}
+                                            status="process"
+                                        />
+                                        <Step title="미션3" key={3} status="wait" />
+                                    </Steps>
+                                </CapsuleTabs.Tab>
+                            </CapsuleTabs>
+                        </Card>
+                    </ScrollViewContainer>
+                    <Space />
+                    <ScrollViewContainer>
+                        <Card title="미션 수행도">
+                            <CapsuleTabs>
+                                <CapsuleTabs.Tab title={<div>1주차</div>} key="fruits">
+                                    <Steps direction="vertical" key={2}>
+                                        <Step
+                                            title="미션1"
+                                            status="finish"
+                                            key={1}
+                                            children={<div>체중재기</div>}
+                                            description={<div>체중재기</div>}
+                                        />
+                                        <Step
+                                            title="미션2"
+                                            key={2}
+                                            children={<div>체중재기</div>}
+                                            description={<div>천리길도 한걸음부터</div>}
+                                            status="process"
+                                        />
+                                        <Step title="미션3" key={3} status="wait" />
+                                    </Steps>
+                                </CapsuleTabs.Tab>
+                            </CapsuleTabs>
+                        </Card>
+                    </ScrollViewContainer>
+                    <Space />
+                    <ScrollViewContainer>
+                        <Card title="미션 수행도">
+                            <CapsuleTabs>
+                                <CapsuleTabs.Tab title={<div>1주차</div>} key="fruits">
+                                    <Steps direction="vertical" key={2}>
+                                        <Step
+                                            title="미션1"
+                                            status="finish"
+                                            key={1}
+                                            children={<div>체중재기</div>}
+                                            description={<div>체중재기</div>}
+                                        />
+                                        <Step
+                                            title="미션2"
+                                            key={2}
+                                            children={<div>체중재기</div>}
+                                            description={<div>천리길도 한걸음부터</div>}
+                                            status="process"
+                                        />
+                                        <Step title="미션3" key={3} status="wait" />
+                                    </Steps>
+                                </CapsuleTabs.Tab>
+                            </CapsuleTabs>
+                        </Card>
+                    </ScrollViewContainer>
+                    <Space />
+                    <ScrollViewContainer>
+                        <Card title="미션 수행도">
+                            <CapsuleTabs>
+                                <CapsuleTabs.Tab title={<div>1주차</div>} key="fruits">
+                                    <Steps direction="vertical" key={2}>
+                                        <Step
+                                            title="미션1"
+                                            status="finish"
+                                            key={1}
+                                            children={<div>체중재기</div>}
+                                            description={<div>체중재기</div>}
+                                        />
+                                        <Step
+                                            title="미션2"
+                                            key={2}
+                                            children={<div>체중재기</div>}
+                                            description={<div>천리길도 한걸음부터</div>}
+                                            status="process"
+                                        />
+                                        <Step title="미션3" key={3} status="wait" />
+                                    </Steps>
+                                </CapsuleTabs.Tab>
+                            </CapsuleTabs>
+                        </Card>
+                    </ScrollViewContainer>
+                    <Space />
+                    <ScrollViewContainer>
+                        <Card title="미션 수행도">
+                            <CapsuleTabs>
+                                <CapsuleTabs.Tab title={<div>1주차</div>} key="fruits">
+                                    <Steps direction="vertical" key={2}>
+                                        <Step
+                                            title="미션1"
+                                            status="finish"
+                                            key={1}
+                                            children={<div>체중재기</div>}
+                                            description={<div>체중재기</div>}
+                                        />
+                                        <Step
+                                            title="미션2"
+                                            key={2}
+                                            children={<div>체중재기</div>}
+                                            description={<div>천리길도 한걸음부터</div>}
+                                            status="process"
+                                        />
+                                        <Step title="미션3" key={3} status="wait" />
+                                    </Steps>
+                                </CapsuleTabs.Tab>
+                            </CapsuleTabs>
+                        </Card>
+                    </ScrollViewContainer>
+                    {/* <input type="file" accept="image/*" capture="camera" />
                     <Space />
                     <ImageUploader value={fileList} onChange={setFileList} upload={mockUpload}>
                         <div
@@ -166,7 +395,7 @@ const Login = ({ location, history }) => {
                             }}>
                             <PictureOutline style={{ fontSize: 32 }} />
                         </div>
-                    </ImageUploader>
+                    </ImageUploader> */}
                 </div>
             }
         />
