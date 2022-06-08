@@ -11,40 +11,73 @@ import {
     FloatingBubble,
     Popup,
     Modal,
-    Toast
+    Toast,
+    Selector,
+    FloatingPanel
 } from 'antd-mobile';
 import { ReactTinyLink } from 'react-tiny-link';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import { getDirectQuestions } from 'api/testApi';
-
+import { getDirectQuestions, postChat } from 'api/testApi';
+import ImageCard from './cards/image';
+import ImageListCard from './cards/imageList';
+const testOptions = [
+    { label: '선택1', value: 1 },
+    { label: '선택2', value: 2 },
+    { label: '선택3', value: 3 },
+    { label: '선택4', value: 4 },
+    { label: '선택5', value: 5 },
+    { label: '선택6', value: 6 },
+    { label: '선택7', value: 7 },
+    { label: '선택8', value: 8 },
+    { label: '선택9', value: 9 }
+];
+const anchors = [100, window.innerHeight * 0.4, window.innerHeight * 0.8];
 const Chat = () => {
-    const scrollViewRef = useRef(null);
+    const messagesEndRef = useRef(null);
     const [msg, setMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [textList, setTextList] = useState([
-        { text: '안녕하세요 000님, 무엇을 도와드릴까요?', type: 'bot', date: '2022-05-15 17:52:32' },
-        {
-            text: '이상지질혈증에 대해 궁금한 점이 있습니다.',
-            type: 'user',
-            date: '2022-05-15 17:53:32'
-        },
-        {
-            text: '어떤 점이 궁금하신가요?',
-            type: 'bot',
-            date: '2022-05-15 17:53:33'
-        },
-        {
-            text: 'HDL콜레스테롤 수치는 감소하면 위험한가요?',
-            type: 'user',
-            date: '2022-05-15 17:54:01'
-        },
-        {
-            text: 'HDL콜레스테롤은 40mg/dl 미만이면 낮은 것으로 판단하며, 혈액 내 HDL콜레스테롤 수치는 높을수록 동맥경화를 예방할 수 있어 좋은 콜레스테롤로 알려져 있습니다.',
-            type: 'bot',
-            date: '2022-05-15 17:54:03'
+    const scrollToBottom = () => {
+        console.log('scrollToBottom');
+        if (messagesEndRef.current) {
+            messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
         }
+    };
+    const PanelUp = () => {
+        return (
+            <FloatingPanel anchors={anchors}>
+                <div>증상을 선택해 주세요.</div>
+                <Selector
+                    options={testOptions}
+                    multiple={true}
+                    onChange={(arr, extend) => console.log(arr, extend.items)}
+                />
+            </FloatingPanel>
+        );
+    };
+    const [textList, setTextList] = useState([
+        { text: '안녕하세요 000님, 무엇을 도와드릴까요?', type: 'bot', date: '2022-05-15 17:52:32' }
+        // {
+        //     text: '이상지질혈증에 대해 궁금한 점이 있습니다.',
+        //     type: 'user',
+        //     date: '2022-05-15 17:53:32'
+        // },
+        // {
+        //     text: '어떤 점이 궁금하신가요?',
+        //     type: 'bot',
+        //     date: '2022-05-15 17:53:33'
+        // },
+        // {
+        //     text: 'HDL콜레스테롤 수치는 감소하면 위험한가요?',
+        //     type: 'user',
+        //     date: '2022-05-15 17:54:01'
+        // },
+        // {
+        //     text: 'HDL콜레스테롤은 40mg/dl 미만이면 낮은 것으로 판단하며, 혈액 내 HDL콜레스테롤 수치는 높을수록 동맥경화를 예방할 수 있어 좋은 콜레스테롤로 알려져 있습니다.',
+        //     type: 'bot',
+        //     date: '2022-05-15 17:54:03'
+        // }
     ]);
     const [text, setText] = useState('');
     const onClick = () => {
@@ -74,29 +107,30 @@ const Chat = () => {
         ];
         setTextList(tmpMsgList);
         setMsg('');
-        // getDirectQuestions({ message: msg, sender: getRandomArbitrary(1000, 9999) }, data => {
+        postChat({ message: msg, sender: getRandomArbitrary(1000, 9999) }, data => {
+            setIsLoading(false);
+            const tmpData = data.map(el => {
+                return { text: el.text, type: 'bot', date: moment().format('YYYY-MM-DD HH:mm:ss') };
+            });
+            console.log('postChat');
+            console.log(tmpData);
+            setTextList([...tmpMsgList, ...tmpData]);
+        });
+        // setTimeout(() => {
         //     setIsLoading(false);
         //     setTextList([
         //         ...tmpMsgList,
         //         {
-        //             text: data,
+        //             text: '대답 : ' + msg,
         //             type: 'bot',
-        //             date: '2022-05-15 17:52:32'
+        //             date: moment().format('YYYY-MM-DD HH:mm:ss')
         //         }
         //     ]);
-        // });
-        setTimeout(() => {
-            setIsLoading(false);
-            setTextList([
-                ...tmpMsgList,
-                {
-                    text: '대답 : ' + msg,
-                    type: 'bot',
-                    date: moment().format('YYYY-MM-DD HH:mm:ss')
-                }
-            ]);
-        }, 1000);
+        // }, 1000);
     };
+    useEffect(() => {
+        scrollToBottom();
+    }, [textList]);
     return (
         <>
             <div style={{ width: '100%' }}>
@@ -110,7 +144,8 @@ const Chat = () => {
                                         style={{
                                             fontWeight: 600,
                                             maxWidth: 'calc( 100% - 150px)',
-                                            overflowWrap: 'anywhere'
+                                            overflowWrap: 'anywhere',
+                                            backgroundColor: '#dfdfdf'
                                         }}>
                                         <div dangerouslySetInnerHTML={{ __html: i?.text }}></div>
                                     </Card>
@@ -218,6 +253,7 @@ const Chat = () => {
                     onClick={onClick}>
                     <UserContactOutline style={{ fontSize: '26px', color: 'gray' }} />
                 </FloatingBubble>
+                <div ref={messagesEndRef} />
             </div>
 
             <div className="aimmed_chat_textbox">

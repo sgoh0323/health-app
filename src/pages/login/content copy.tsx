@@ -3,9 +3,9 @@ import { useHistory, useParams } from 'react-router-dom';
 import { apiUserLogin } from 'api/userApi';
 import useUser from 'hooks/user';
 import modal from 'helper/customModal';
-import sImage from 'assets/images/common/hynix.jpg';
+import sImage from 'assets/images/common/footer_logo.png';
 import { trim } from 'lodash';
-import { AutoCenter, Button, Card, Form, Image, Input, Space } from 'antd-mobile';
+import { Button, Card, Form, Image, Input, Space } from 'antd-mobile';
 
 const LoginContent: React.FunctionComponent = () => {
     const paramPath = useParams();
@@ -78,10 +78,8 @@ const LoginContent: React.FunctionComponent = () => {
 
     return (
         <>
-            <Space direction="vertical" justify="center" block style={{ backgroundColor: 'white', height: '100vh' }}>
-                <AutoCenter>
-                    <Image lazy src={sImage} style={{ width: '70vw' }} />
-                </AutoCenter>
+            <Space direction="vertical" justify="center" block style={{ backgroundColor: '#2A3267', height: '100vh' }}>
+                <Image lazy src={sImage} style={{ width: '100vw' }} />
                 <div
                     style={{
                         width: '100%',
@@ -90,7 +88,7 @@ const LoginContent: React.FunctionComponent = () => {
                         fontWeight: 'bold',
                         fontSize: '17px'
                     }}>
-                    {/* AIMMED ADMIN */}
+                    AIMMED ADMIN
                 </div>
                 <Card>
                     <Form form={basicForm}>

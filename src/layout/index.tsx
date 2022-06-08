@@ -12,7 +12,12 @@ const Layout = ({ item, contents }) => {
                 style={{
                     position: 'fixed',
                     top: `${item?.header ? 45 : 0}`,
-                    height: `${item?.header && item?.tabnav ? 'calc( 100vh - 95px )' : 'calc( 100vh - 50px )'}`,
+                    // height: `${item?.header && item?.tabnav ? 'calc( 100vh - 95px )' : 'calc( 100vh - 50px )'}`,
+                    height: `${
+                        item?.header && (item?.tabnav || item?.key === 'chat')
+                            ? 'calc( 100vh - 95px )'
+                            : 'calc( 100vh - 50px )'
+                    }`,
                     overflowY: 'auto',
                     overflowX: 'hidden',
                     // padding: '10px',

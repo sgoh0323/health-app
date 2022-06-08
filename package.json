@@ -20,7 +20,7 @@
     "echarts-for-react": "^3.0.2",
     "framer-motion": "^6.3.6",
     "gh-pages": "^4.0.0",
-    "http-proxy-middleware": "^2.0.3",
+    "http-proxy-middleware": "^2.0.6",
     "immutability-helper": "^3.1.1",
     "jodit-react": "^1.2.6",
     "lodash": "^4.17.20",
@@ -120,5 +120,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://sgoh0323.github.io/health-app"
+  "homepage": "https://sgoh0323.github.io/health-app",
+  "proxy": "http://3.37.176.164:5004"
 }

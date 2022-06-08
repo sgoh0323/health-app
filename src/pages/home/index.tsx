@@ -197,7 +197,7 @@ const Login = ({ location, history }) => {
                             </CapsuleTabs>
                         </Card>
                     </motion.div>
-                    <Space />
+                    {/* <Space />
                     <ScrollViewContainer>
                         <Card title="미션 수행도">
                             <CapsuleTabs>
@@ -378,7 +378,7 @@ const Login = ({ location, history }) => {
                                 </CapsuleTabs.Tab>
                             </CapsuleTabs>
                         </Card>
-                    </ScrollViewContainer>
+                    </ScrollViewContainer> */}
                     {/* <input type="file" accept="image/*" capture="camera" />
                     <Space />
                     <ImageUploader value={fileList} onChange={setFileList} upload={mockUpload}>

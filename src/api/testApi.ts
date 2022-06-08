@@ -39,3 +39,14 @@ export const getManagerList = async (payload, callback: any) => {
         callback(data);
     }
 };
+
+export const postChat = async (payload, callback: any) => {
+    const { data = null } = await service({
+        url: `/webhooks/rasa/webhook?token=secret`,
+        method: 'post',
+        data: payload
+    });
+    if (data !== null) {
+        callback(data);
+    }
+};
