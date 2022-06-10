@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 import { getDirectQuestions, postChat } from 'api/testApi';
 import ImageCard from './cards/image';
 import ImageListCard from './cards/imageList';
+import BottomPopup from './cards/bottomPopup';
 const testOptions = [
     { label: '선택1', value: 1 },
     { label: '선택2', value: 2 },
@@ -44,20 +45,21 @@ const Chat = () => {
             messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
         }
     };
-    const PanelUp = () => {
-        return (
-            <FloatingPanel anchors={anchors}>
-                <div>증상을 선택해 주세요.</div>
-                <Selector
-                    options={testOptions}
-                    multiple={true}
-                    onChange={(arr, extend) => console.log(arr, extend.items)}
-                />
-            </FloatingPanel>
-        );
+    const test = aa => {
+        console.log('##################################');
+        console.log(aa);
+    };
+    const onClickForm = () => {
+        console.log(document.forms[0].kkk.value);
     };
     const [textList, setTextList] = useState([
-        { text: '안녕하세요 000님, 무엇을 도와드릴까요?', type: 'bot', date: '2022-05-15 17:52:32' }
+        { text: '안녕하세요 000님, 무엇을 도와드릴까요?', type: 'bot', date: '2022-05-15 17:52:32' },
+        {
+            text: `<div><script>function aaa(){console.log('aaaa')}</script><button onclick='console.log(22222); test("adasdasdasdasd1111111111");'>전송</button></div>`,
+            type: 'bot',
+            date: '2022-05-15 17:52:32'
+        },
+        { text: `<form name='chabot_form'><input name='kkk'/></form>`, type: 'bot', date: '2022-05-15 17:52:32' }
         // {
         //     text: '이상지질혈증에 대해 궁금한 점이 있습니다.',
         //     type: 'user',
@@ -96,6 +98,7 @@ const Chat = () => {
         return Math.random() * (max - min) + min;
     };
     const sendMessage = () => {
+        onClickForm();
         setIsLoading(true);
         const tmpMsgList = [
             ...textList,
@@ -217,6 +220,10 @@ const Chat = () => {
                         </Card>
                     </Grid>
                 )}
+                <Grid columns={1} gap={5} style={{ display: 'flex', margin: 10 }}>
+                    <Avatar src="" style={{ '--size': '46px' }} />
+                    <BottomPopup title="증상이 어떠신지 말씀해 주세요." subTitle="증상을 선택해 주세요." />
+                </Grid>
                 {/* <Grid columns={1} gap={5} style={{ display: 'flex', margin: 10 }}>
                     <Avatar src="" style={{ '--size': '46px' }} />
                     <Card style={{ fontWeight: 600, maxWidth: 'calc( 100% - 150px)' }}>
