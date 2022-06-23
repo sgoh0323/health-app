@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/health-app/static/css/main.569adb6b.css",
-    "main.js": "/health-app/static/js/main.ab013397.js",
+    "main.js": "/health-app/static/js/main.f5ba3957.js",
     "static/js/484.410f8f64.chunk.js": "/health-app/static/js/484.410f8f64.chunk.js",
     "static/media/splash.jpg": "/health-app/static/media/splash.75ec6cd63613491a6788.jpg",
     "static/media/NotoSansKR-Black.otf": "/health-app/static/media/NotoSansKR-Black.c25cdc16ac2fbdc6577e.otf",
@@ -26,11 +26,11 @@
     "static/media/mission_sample.png": "/health-app/static/media/mission_sample.a817df9ed19c5cf86f0a.png",
     "index.html": "/health-app/index.html",
     "main.569adb6b.css.map": "/health-app/static/css/main.569adb6b.css.map",
-    "main.ab013397.js.map": "/health-app/static/js/main.ab013397.js.map",
+    "main.f5ba3957.js.map": "/health-app/static/js/main.f5ba3957.js.map",
     "484.410f8f64.chunk.js.map": "/health-app/static/js/484.410f8f64.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.569adb6b.css",
-    "static/js/main.ab013397.js"
+    "static/js/main.f5ba3957.js"
   ]
 }
