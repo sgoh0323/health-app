@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ECharts, { EChartsReactProps } from 'echarts-for-react';
+import { Card } from 'antd-mobile';
 
-const LineChart = () => {
+const MissionCard = () => {
     const [options, setOptions] = useState({
         tooltip: { show: true, trigger: 'item' },
         xAxis: {
@@ -25,14 +26,6 @@ const LineChart = () => {
         ]
     });
 
-    return (
-        <ECharts
-            option={options}
-            style={{
-                height: '100%',
-                width: '100%'
-            }}
-        />
-    );
+    return <Card></Card>;
 };
-export default LineChart;
+export default MissionCard;

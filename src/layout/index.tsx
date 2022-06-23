@@ -22,9 +22,16 @@ const Layout = ({ item, contents }) => {
                     overflowX: 'hidden',
                     // padding: '10px',
                     width: '100vW',
-                    backgroundColor: '#ddf1fb'
+                    // backgroundColor: '#ddf1fb'
+                    backgroundColor: '#EFE9E9'
                 }}>
-                <motion.div initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+                <motion.div
+                    initial={{
+                        y: item.key !== 'chat' ? undefined : -100,
+                        x: item.key === 'chat' ? undefined : 100,
+                        opacity: 0
+                    }}
+                    animate={{ y: 0, x: 0, opacity: 1 }}>
                     {contents}
                 </motion.div>
             </div>

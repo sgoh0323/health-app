@@ -2,7 +2,7 @@ export const menus = {
     '/home': {
         icon: null,
         key: 'home',
-        label: 'Home',
+        label: 'Smart Care',
         path: '/home',
         level: 0,
         parentKey: '',

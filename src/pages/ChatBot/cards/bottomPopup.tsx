@@ -13,7 +13,7 @@ const testOptions = [
     { label: '선택9', value: 9 }
 ];
 const anchors = [100, window.innerHeight * 0.4, window.innerHeight * 0.8];
-const BottomPopup = ({ title = '', subTitle = '증상을 선택해 주세요.', items = testOptions }) => {
+const BottomPopup = ({ title = '', subTitle = '', items = testOptions }) => {
     const [visible, setVisible] = useState(false);
     const ComPopUp = () => {
         return (

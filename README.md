@@ -24,14 +24,15 @@ v14.16.0
 ├── public  → index.html 
 │
 └── src   → Frontend Code(React)
+     ├──── api → axios
      │
      ├──── assets → image, svg folder
      │ 
-     ├──── components → Cotainer 구조, Antd*.tsx(Antd 활용)
+     ├──── components →  antd-mobile
      │
      ├──── pages → 
      │
-     ├──── router → React Router HashRouter 방식
+     ├──── router → BrowserRouter
      │
      └──── styles(SASS)
             │
@@ -41,6 +42,6 @@ v14.16.0
             │                
             ├─────── font → font-face
             │                
-            └─────── pages → page style code
+            └─────── 각 폴더에 SCSS 로 import
 ```
 

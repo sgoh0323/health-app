@@ -54,7 +54,13 @@ const Mypage = ({ history }) => {
                         <List.Item onClick={() => {}}>문의하기</List.Item>
                         <List.Item onClick={() => {}}>버전정보</List.Item>
                         <List.Item onClick={() => {}}>개인정보 처리 방침</List.Item>
-                        <List.Item onClick={() => {}}>로그아웃</List.Item>
+                        <List.Item
+                            onClick={() => {
+                                window.localStorage.removeItem('accessToken');
+                                window.localStorage.removeItem('refreshToken');
+                            }}>
+                            로그아웃
+                        </List.Item>
                     </List>
                 </>
             }

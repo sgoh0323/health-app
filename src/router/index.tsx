@@ -163,7 +163,6 @@ const Router: React.FunctionComponent = () => {
                     <Switch>
                         <Route exact path="/404" component={page404} />
                         <Route exact path="/error" component={page500} />
-
                         <Route exact path="/home" component={Home} />
                         <Route exact path="/chat" component={Chat} />
                         <Route exact path="/faq" component={Faq} />
@@ -173,10 +172,8 @@ const Router: React.FunctionComponent = () => {
                         <Route exact path="/notisetting" component={NotificationSettings} />
                         <Route exact path="/coaching" component={HealthCoaching} />
                         <Route exact path="/habit" component={HealthHabit} />
-
                         <Route path="*" component={page404} />
                     </Switch>
-                    <TabMenu />
 
                     {/* <TabMenu tabs={tabs} location={location} /> */}
                 </>

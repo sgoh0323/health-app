@@ -11,9 +11,6 @@ export const SelectMenuList = {
         if (action.payload.data) {
             localStorage.setItem('menuSubItemList', JSON.stringify(action.payload.data));
         }
-        // .filter(
-        //     item => item.key[0] !== 'M' && item.key[0] !== 'P'
-        // );
         state.loading = false;
     },
     [fetchMenuList.rejected.type]: (state, action) => {
@@ -24,9 +21,6 @@ export const SelectMenuList = {
     },
     [fetchUserInfo.fulfilled.type]: (state, action) => {
         state.userInfo = action.payload.data;
-        // .filter(
-        //     item => item.key[0] !== 'M' && item.key[0] !== 'P'
-        // );
         state.loading = false;
     },
     [fetchUserInfo.rejected.type]: (state, action) => {

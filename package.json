@@ -121,5 +121,5 @@
     ]
   },
   "homepage": "https://sgoh0323.github.io/health-app",
-  "proxy": "http://3.37.176.164:5004"
+  "*****COMMENT*****" : "proxy : http://3.37.176.164:5004"
 }

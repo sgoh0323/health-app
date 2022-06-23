@@ -31,6 +31,7 @@ const NavBarCompornent = ({ location, history }) => {
                         // }
                     }}
                     backArrow={<UnorderedListOutlined />}
+                    style={{ backgroundColor: '#EF800A' }}
                     className="aimmed_nav">
                     {menus[location.pathname].label}
                 </NavBar>
