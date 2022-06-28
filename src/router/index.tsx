@@ -33,7 +33,9 @@ import ChangePwd from '../pages/changePwd';
 import FindPwd from '../pages/findPwd';
 import NotificationSettings from '../pages/notificationSettings';
 import HealthCoaching from '../pages/healthCoaching';
-import HealthHabit from '../pages/healthHabit';
+import HealthHabit from '../pages/healthCenter';
+import HealthEvent from '../pages/healthCenterEvent';
+import HealthNotice from '../pages/healthCenterNotice';
 
 const Router: React.FunctionComponent = () => {
     const { userInfo } = useUser();
@@ -171,7 +173,9 @@ const Router: React.FunctionComponent = () => {
                         <Route exact path="/findpwd" component={FindPwd} />
                         <Route exact path="/notisetting" component={NotificationSettings} />
                         <Route exact path="/coaching" component={HealthCoaching} />
-                        <Route exact path="/habit" component={HealthHabit} />
+                        <Route exact path="/health" component={HealthHabit} />
+                        <Route exact path="/health/event" component={HealthEvent} />
+                        <Route exact path="/health/notice" component={HealthNotice} />
                         <Route path="*" component={page404} />
                     </Switch>
 

@@ -87,14 +87,36 @@ export const menus = {
         header: true,
         tabnav: true
     },
-    '/habit': {
+    '/health': {
         icon: null,
-        key: 'habit',
-        label: '건강 습관',
-        path: '/habit',
+        key: 'health',
+        label: '보건센터',
+        path: '/health',
         level: 0,
         parentKey: '',
-        components: 'habit',
+        components: 'health',
+        header: true,
+        tabnav: true
+    },
+    '/health/event': {
+        icon: null,
+        key: 'healthevent',
+        label: '이벤트',
+        path: '/health/event',
+        level: 0,
+        parentKey: '',
+        components: 'HealthEvent',
+        header: true,
+        tabnav: true
+    },
+    '/health/notice': {
+        icon: null,
+        key: 'healthnotice',
+        label: '공지사항',
+        path: '/health/notice',
+        level: 0,
+        parentKey: '',
+        components: 'healthnotice',
         header: true,
         tabnav: true
     }

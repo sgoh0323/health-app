@@ -24,7 +24,6 @@ export const apiUserLogin = async (payload, callback: any) => {
         await window.localStorage.removeItem('refreshToken');
         await window.localStorage.setItem('accessToken', data.result.token.accessToken);
         await window.localStorage.setItem('refreshToken', data.result.token.refreshToken);
-
         callback(data);
     }
 };

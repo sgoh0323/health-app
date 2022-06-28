@@ -3,6 +3,7 @@ import Layout from 'layout';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { menus } from 'router/menu';
+import './style.scss';
 
 const NotificationSettings = ({ location, history }) => {
     const item = menus[location.pathname];
@@ -13,7 +14,7 @@ const NotificationSettings = ({ location, history }) => {
                 <main>
                     <Space direction="vertical" justify="center" block style={{ height: 'calc(100vh - 150px)' }}>
                         <Card>
-                            <Form layout="horizontal">
+                            <Form layout="horizontal" className="noti_form">
                                 <Form.Item name="userId" label="공지사항" style={{ width: '100%' }}>
                                     <Switch />
                                 </Form.Item>

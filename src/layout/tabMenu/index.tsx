@@ -38,11 +38,11 @@ const TabMenu = ({ location, history }) => {
             header: true
         },
         {
-            key: 'habit',
-            title: '건강습관',
+            key: 'health',
+            title: '보건센터',
             icon: <BulbOutlined />,
             // badge: '99+',
-            path: '/habit',
+            path: '/health',
             tabNav: true,
             header: true
         },
