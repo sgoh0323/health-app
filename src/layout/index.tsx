@@ -1,3 +1,4 @@
+import NotiPopup from 'components/notiPopup/NotiPopup';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { ILayoutProps } from './interface';
@@ -35,6 +36,9 @@ const Layout = ({ item, contents }) => {
                     {contents}
                 </motion.div>
             </div>
+            <NotiPopup type="공지/이벤트" title="간식제로 챌린지 공유하기!">
+                <div>간식제로 챌린지를 친구들에게도 소개해보세요. 추첨을 통하여 커피 이모티콘을 드려요</div>
+            </NotiPopup>
             <TabMenu />
         </>
     );

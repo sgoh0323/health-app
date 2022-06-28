@@ -12,9 +12,53 @@ const WeekBox = ({ type, isActive = false, children = [] }) => {
     const [weekData, setWeekData] = useState([]);
     const day = ['월', '화', '수', '목', '금', '토', '일'];
     useLayoutEffect(() => {
-        getWeekData({}, data => {
-            setWeekData(data);
-        });
+        // getWeekData({}, data => {
+        //     setWeekData(data);
+        // });
+        setWeekData([
+            {
+                id: 1,
+                date: '2022-06-20',
+                activity: 80,
+                meal: 20
+            },
+            {
+                id: 2,
+                date: '2022-06-21',
+                activity: 30,
+                meal: 70
+            },
+            {
+                id: 3,
+                date: '2022-06-22',
+                activity: 100,
+                meal: 100
+            },
+            {
+                id: 4,
+                date: '2022-06-23',
+                activity: 20,
+                meal: 100
+            },
+            {
+                id: 5,
+                date: '2022-06-24',
+                activity: 100,
+                meal: 20
+            },
+            {
+                id: 6,
+                date: '2022-06-25',
+                activity: 0,
+                meal: 0
+            },
+            {
+                id: 7,
+                date: '2022-06-2',
+                activity: 0,
+                meal: 0
+            }
+        ]);
     }, []);
 
     return (

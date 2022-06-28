@@ -13,7 +13,7 @@ const ChangePwd = lazy(() => import('../pages/changePwd'));
 const FindPWD = lazy(() => import('../pages/findPwd'));
 const NotificationSettings = lazy(() => import('../pages/notificationSettings'));
 const Coaching = lazy(() => import('../pages/healthCoaching'));
-const Habit = lazy(() => import('../pages/healthHabit'));
+const Habit = lazy(() => import('../pages/healthCenter'));
 
 export const COMPONENT_LIST = {
     partnerNoticeList: Exam,
