@@ -1,29 +1,21 @@
-import {
-    AppleOutlined,
-    BulbOutlined,
-    HomeOutlined,
-    MessageFilled,
-    MessageOutlined,
-    NotificationOutlined,
-    UnorderedListOutlined,
-    UserOutlined
-} from '@ant-design/icons';
+import { BulbOutlined, HomeOutlined, MessageFilled, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { TabBar } from 'antd-mobile';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 
 const TabMenu = ({ location, history }) => {
     console.log('###################');
     console.log(location);
     // const history = useHistory();
+    // const history = useHistory();
     const [visiable, setVisiable] = useState(true);
     const tabs = [
         {
-            key: 'sample',
+            key: 'coaching',
             title: '건강코칭',
             icon: <NotificationOutlined />,
             // badge: Badge.dot,
-            path: '/sample',
+            path: '/coaching',
             tabNav: true,
             header: true
         },
@@ -33,7 +25,7 @@ const TabMenu = ({ location, history }) => {
             icon: <MessageFilled />,
             // badge: '5',
             path: '/chat',
-            tabNav: false,
+            tabNav: true,
             header: true
         },
         {
@@ -46,11 +38,11 @@ const TabMenu = ({ location, history }) => {
             header: true
         },
         {
-            key: 'message',
+            key: 'habit',
             title: '건강습관',
             icon: <BulbOutlined />,
             // badge: '99+',
-            path: '/partner/notice/new',
+            path: '/habit',
             tabNav: true,
             header: true
         },
@@ -64,6 +56,8 @@ const TabMenu = ({ location, history }) => {
         }
     ];
     useLayoutEffect(() => {
+        console.log('useLayoutEffect');
+        console.log(location.pathname !== '/chat');
         setVisiable(location.pathname !== '/chat');
     }, [location]);
     return (
@@ -72,14 +66,16 @@ const TabMenu = ({ location, history }) => {
                 <TabBar
                     className="aimmed_btab"
                     defaultActiveKey="home"
-                    onChange={key => {
-                        setVisiable(key !== 'chat');
-                        const item = tabs.filter(i => i.key === key)[0];
-                        history.push({ pathname: item.path, state: item });
+                    activeKey={location.pathname}
+                    onChange={path => {
+                        setVisiable(path !== '/chat');
+                        const item = tabs.filter(i => i.path === path)[0];
+                        // history.push({ pathname: item.path, state: item });
+                        history.push(item.path);
                     }}>
                     {tabs.map(item => (
                         <TabBar.Item
-                            key={item.key}
+                            key={item.path}
                             // icon={<Link to={item.path}>item.icon</Link>}
                             icon={item.icon}
                             title={item.title}></TabBar.Item>

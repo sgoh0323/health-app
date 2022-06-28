@@ -5,7 +5,7 @@ import { menus } from 'router/menu';
 import Layout from 'layout';
 import { withRouter } from 'react-router-dom';
 
-const Login = ({ location, history }) => {
+const Chat = ({ location, history }) => {
     const Header = {
         title: 'aimmed App'
     };
@@ -13,4 +13,4 @@ const Login = ({ location, history }) => {
     return <Layout item={item} contents={<LoginContent />} />;
 };
 
-export default withRouter(Login);
+export default withRouter(Chat);

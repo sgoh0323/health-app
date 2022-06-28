@@ -1,10 +1,13 @@
-import { Button, Image, Space } from 'antd-mobile';
+import { Button, Image, SafeArea, Space } from 'antd-mobile';
 import React from 'react';
 import sImage from 'assets/images/common/splash.jpg';
 
 export const Splash = ({ onStart }) => {
     return (
         <>
+            <div style={{ background: 'white' }}>
+                <SafeArea position="top" />
+            </div>
             <Space direction="vertical" justify="start" block style={{ backgroundColor: 'white', height: '100vh' }}>
                 <Image lazy src={sImage} style={{ height: '100%' }} fit="scale-down" />
             </Space>
@@ -19,6 +22,9 @@ export const Splash = ({ onStart }) => {
                     시작하기
                 </Button>
             </Space>
+            <div style={{ background: 'white' }}>
+                <SafeArea position="bottom" />
+            </div>
         </>
     );
 };

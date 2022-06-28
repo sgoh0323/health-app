@@ -1,6 +1,8 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { ILayoutProps } from './interface';
 import Nav from './nav';
+import TabMenu from './tabMenu';
 
 const Layout = ({ item, contents }) => {
     return (
@@ -10,14 +12,30 @@ const Layout = ({ item, contents }) => {
                 style={{
                     position: 'fixed',
                     top: `${item?.header ? 45 : 0}`,
-                    height: `${item?.header && item?.tabnav ? 'calc( 100vh - 95px )' : 'calc( 100vh - 50px )'}`,
+                    // height: `${item?.header && item?.tabnav ? 'calc( 100vh - 95px )' : 'calc( 100vh - 50px )'}`,
+                    height: `${
+                        item?.header && (item?.tabnav || item?.key === 'chat')
+                            ? 'calc( 100vh - 95px )'
+                            : 'calc( 100vh - 50px )'
+                    }`,
                     overflowY: 'auto',
                     overflowX: 'hidden',
                     // padding: '10px',
-                    width: '100vW'
+                    width: '100vW',
+                    // backgroundColor: '#ddf1fb'
+                    backgroundColor: '#EFE9E9'
                 }}>
-                {contents}
+                <motion.div
+                    initial={{
+                        y: item.key !== 'chat' ? undefined : -100,
+                        x: item.key === 'chat' ? undefined : 100,
+                        opacity: 0
+                    }}
+                    animate={{ y: 0, x: 0, opacity: 1 }}>
+                    {contents}
+                </motion.div>
             </div>
+            <TabMenu />
         </>
     );
 };

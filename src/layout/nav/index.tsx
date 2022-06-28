@@ -26,6 +26,7 @@ const NavBarCompornent = ({ item }) => {
                         // }
                     }}
                     backArrow={<LeftOutline />}
+                    style={{ backgroundColor: '#EF800A' }}
                     className="aimmed_nav">
                     {item.label}
                 </NavBar>

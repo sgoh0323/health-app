@@ -60,3 +60,22 @@ export const dataToOptions = (arg: any[], labelKey: string, valueKey: string): C
     });
     return rsOptions;
 };
+
+// 한주 날짜 가져오기 월~일 요일
+export const getWeekDays = (targetDate: string) => {
+    const currentDay = moment(targetDate).days();
+
+    let interval = 1 - currentDay;
+    let weeks = [...Array(7)].map((i, index) => {
+        interval++;
+        return (i = moment(targetDate).add('day', interval).format('YYYY-MM-DD'));
+    });
+    return weeks;
+};
+
+// 주차 시작일 종료일 가져오기
+export const getWeek = (startDate, weeks, format = 'YYYY-MM-DD') => {
+    const startDt = moment(startDate);
+    const endDt = moment(startDate).add('week', weeks);
+    return [startDt.format(format), endDt.format(format)];
+};

@@ -1,10 +1,15 @@
 import { Space, Divider, List, AutoCenter } from 'antd-mobile';
 import Layout from 'layout';
+import { useEffect } from 'react';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { menus } from 'router/menu';
 
-const Mypage = ({ location, history }) => {
+const Mypage = ({ history }) => {
     const item = menus[location.pathname];
+    useEffect(() => {
+        console.log('item~~!!!!!!!!!!!');
+        console.log(item);
+    }, []);
 
     return (
         <Layout
@@ -49,7 +54,13 @@ const Mypage = ({ location, history }) => {
                         <List.Item onClick={() => {}}>문의하기</List.Item>
                         <List.Item onClick={() => {}}>버전정보</List.Item>
                         <List.Item onClick={() => {}}>개인정보 처리 방침</List.Item>
-                        <List.Item onClick={() => {}}>로그아웃</List.Item>
+                        <List.Item
+                            onClick={() => {
+                                window.localStorage.removeItem('accessToken');
+                                window.localStorage.removeItem('refreshToken');
+                            }}>
+                            로그아웃
+                        </List.Item>
                     </List>
                 </>
             }
