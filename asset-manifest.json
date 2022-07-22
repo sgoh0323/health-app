@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/health-app/static/css/main.68cc8b17.css",
-    "main.js": "/health-app/static/js/main.d3a29863.js",
+    "main.css": "/health-app/static/css/main.35e9c0b5.css",
+    "main.js": "/health-app/static/js/main.9489dbbf.js",
     "static/media/Pretendard-Light.otf": "/health-app/static/media/Pretendard-Light.b751f0c99ed43c34e627.otf",
     "static/media/Pretendard-Medium.otf": "/health-app/static/media/Pretendard-Medium.a8904df42c9b4f93a668.otf",
     "static/media/Pretendard-SemiBold.otf": "/health-app/static/media/Pretendard-SemiBold.d8e6b49c5bbba3cd911b.otf",
@@ -24,7 +24,6 @@
     "static/media/NotoSansKR-Bold.otf": "/health-app/static/media/NotoSansKR-Bold.bbb4ca5df6c6540f4af8.otf",
     "static/media/NotoSansKR-Regular.otf": "/health-app/static/media/NotoSansKR-Regular.bf54b090356010039bab.otf",
     "static/media/NotoSansKR-Medium.otf": "/health-app/static/media/NotoSansKR-Medium.7def03a7e5e60c5e0704.otf",
-    "static/media/hynix.jpg": "/health-app/static/media/hynix.7597201a0344a5cbe13b.jpg",
     "static/media/Montserrat-Bold.otf": "/health-app/static/media/Montserrat-Bold.6b90d098967c88955a57.otf",
     "static/media/Montserrat-SemiBold.otf": "/health-app/static/media/Montserrat-SemiBold.8102f95bbea732e0fb60.otf",
     "static/media/Montserrat-Regular.otf": "/health-app/static/media/Montserrat-Regular.0cb31f9e78678045ac68.otf",
@@ -58,12 +57,14 @@
     "static/media/icon_meal.png": "/health-app/static/media/icon_meal.17d3e9a31697334edd7c.png",
     "static/media/icon_activity.png": "/health-app/static/media/icon_activity.78b6f92d182923be2d9a.png",
     "static/media/icon_waist.png": "/health-app/static/media/icon_waist.f33f87c5f1f0cd2d65ee.png",
+    "static/media/arr_right.svg": "/health-app/static/media/arr_right.1cbf5ac007e3fc19f52b.svg",
     "index.html": "/health-app/index.html",
-    "main.68cc8b17.css.map": "/health-app/static/css/main.68cc8b17.css.map",
-    "main.d3a29863.js.map": "/health-app/static/js/main.d3a29863.js.map"
+    "static/media/btn_checkbox.svg": "/health-app/static/media/btn_checkbox.25d88c7b5cce0b821784.svg",
+    "main.35e9c0b5.css.map": "/health-app/static/css/main.35e9c0b5.css.map",
+    "main.9489dbbf.js.map": "/health-app/static/js/main.9489dbbf.js.map"
   },
   "entrypoints": [
-    "static/css/main.68cc8b17.css",
-    "static/js/main.d3a29863.js"
+    "static/css/main.35e9c0b5.css",
+    "static/js/main.9489dbbf.js"
   ]
 }
