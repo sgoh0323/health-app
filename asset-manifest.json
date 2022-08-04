@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/health-app/static/css/main.30ee2ffb.css",
-    "main.js": "/health-app/static/js/main.a24ea4cc.js",
+    "main.css": "/health-app/static/css/main.c81b3262.css",
+    "main.js": "/health-app/static/js/main.905d9294.js",
     "static/media/Pretendard-Light.otf": "/health-app/static/media/Pretendard-Light.b751f0c99ed43c34e627.otf",
     "static/media/Pretendard-Medium.otf": "/health-app/static/media/Pretendard-Medium.a8904df42c9b4f93a668.otf",
     "static/media/Pretendard-SemiBold.otf": "/health-app/static/media/Pretendard-SemiBold.d8e6b49c5bbba3cd911b.otf",
@@ -52,19 +52,15 @@
     "static/media/Montserrat-SemiBold.woff2": "/health-app/static/media/Montserrat-SemiBold.1f62be1da50480f1ad85.woff2",
     "static/media/Montserrat-Regular.woff2": "/health-app/static/media/Montserrat-Regular.54e5ab38e7cf2d5499e6.woff2",
     "static/media/Montserrat-Light.woff2": "/health-app/static/media/Montserrat-Light.c54881f5d11b48bfdac1.woff2",
-    "static/media/h2.png": "/health-app/static/media/h2.b5a9d41d62d0f33bfea1.png",
     "static/media/mission_sample.png": "/health-app/static/media/mission_sample.a817df9ed19c5cf86f0a.png",
-    "static/media/icon_meal.png": "/health-app/static/media/icon_meal.17d3e9a31697334edd7c.png",
-    "static/media/icon_activity.png": "/health-app/static/media/icon_activity.78b6f92d182923be2d9a.png",
-    "static/media/icon_waist.png": "/health-app/static/media/icon_waist.f33f87c5f1f0cd2d65ee.png",
     "static/media/arr_right.svg": "/health-app/static/media/arr_right.1cbf5ac007e3fc19f52b.svg",
     "index.html": "/health-app/index.html",
     "static/media/btn_checkbox.svg": "/health-app/static/media/btn_checkbox.25d88c7b5cce0b821784.svg",
-    "main.30ee2ffb.css.map": "/health-app/static/css/main.30ee2ffb.css.map",
-    "main.a24ea4cc.js.map": "/health-app/static/js/main.a24ea4cc.js.map"
+    "main.c81b3262.css.map": "/health-app/static/css/main.c81b3262.css.map",
+    "main.905d9294.js.map": "/health-app/static/js/main.905d9294.js.map"
   },
   "entrypoints": [
-    "static/css/main.30ee2ffb.css",
-    "static/js/main.a24ea4cc.js"
+    "static/css/main.c81b3262.css",
+    "static/js/main.905d9294.js"
   ]
 }
